@@ -8,12 +8,11 @@ export default function Navbar({ path }) {
 
   const onSelect = (e) => {
     const locale = e.target.value;
-    console.log(locale);
     router.push(locale);
   };
 
   return (
-    <div className="flex align-middle w-full h-12">
+    <div className="fixed w-full h-12 z-10" as="nav">
       <select
         className="form-select appearance-none
       block
@@ -34,8 +33,8 @@ export default function Navbar({ path }) {
         onChange={onSelect}
       >
         {links.map((link, index) => (
-          <option value={link.path} key={index}>
-            {link.name}
+          <option defaultValue={path} value={link.path} key={index}>
+            {index + 1} - {link.name}
           </option>
         ))}
       </select>
