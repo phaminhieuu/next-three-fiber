@@ -11,10 +11,10 @@ const links = [
     name: "3D Text",
     path: "/3dtext",
   },
-  //   {
-  //     name: "Light",
-  //     path: "/light",
-  //   },
+    {
+      name: "Light",
+      path: "/lights",
+    },
   //   {
   //     name: "Shadow",
   //     path: "/shadow",
