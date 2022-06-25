@@ -19,6 +19,7 @@ const links = [
     name: "Shadow",
     path: "/shadow",
   },
+  { name: "Particle", path: "/particle" },
 ];
 
 export default links;
