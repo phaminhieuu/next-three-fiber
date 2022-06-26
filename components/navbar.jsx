@@ -6,8 +6,6 @@ import links from "../constants/link";
 export default function Navbar({ path }) {
   const router = useRouter();
 
-  console.log(path);
-
   const onSelect = (e) => {
     const locale = e.target.value;
     router.push(locale);
@@ -35,7 +33,7 @@ export default function Navbar({ path }) {
         onChange={onSelect}
       >
         {links.map((link, index) => (
-          <option value={link.path} key={index} selected={link.path === path}>
+          <option selected={link.path === path} value={link.path} key={index}>
             {index + 1} - {link.name}
           </option>
         ))}

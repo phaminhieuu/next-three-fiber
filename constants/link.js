@@ -19,6 +19,10 @@ const links = [
     name: "Shadow",
     path: "/shadow",
   },
+  {
+    name: "Haunted House",
+    path: "/hauntedhouse",
+  },
   { name: "Particle", path: "/particle" },
 ];
 
