@@ -24,6 +24,7 @@ const links = [
     path: "/hauntedhouse",
   },
   { name: "Particle", path: "/particle" },
+  { name: "Galaxy generator", path: "/galaxy" },
 ];
 
 export default links;
