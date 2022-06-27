@@ -39,6 +39,7 @@ export default function Particle() {
         camera={{ position: [4, 2, 5], fov: 75, near: 0.1, far: 100 }}
         linear={true}
         legacy={true}
+        shadows
       >
         <Suspense fallback={null}>
           <Scene />

@@ -25,6 +25,8 @@ const links = [
   },
   { name: "Particle", path: "/particle" },
   { name: "Galaxy generator", path: "/galaxy" },
+  { name: "Raycaster", path: "/raycaster" },
+  { name: "Physics", path: "/physics" },
 ];
 
 export default links;

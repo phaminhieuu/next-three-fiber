@@ -1,28 +1,19 @@
 /* eslint-disable react/display-name */
 import { useFrame } from "@react-three/fiber";
-import React, { useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 
 const GhostLight = React.forwardRef((props, ref) => {
   const { color } = props;
-  return (
-    <>
-      <pointLight
-        ref={ref}
-        args={[color, 3, 3]}
-        castShadow={true}
-        shadow={{
-          mapSize: {
-            width: 256,
-            height: 256,
-          },
-          camera: {
-            far: 7,
-          },
-        }}
-      />
-    </>
-  );
+
+  const ghostRef = useRef();
+  useLayoutEffect(() => {
+    if (!ghostRef.current) return;
+    ghostRef.current.shadow.mapSize.width = 256;
+    ghostRef.current.shadow.mapSize.height = 256;
+    ghostRef.current.camera.far = 7;
+  }, []);
+  return <pointLight ref={ref} args={[color, 3, 3]} castShadow={true} />;
 });
 
 const Lights = () => {
@@ -53,6 +44,20 @@ const Lights = () => {
       Math.sin(elapsedTime * 4) + Math.sin(elapsedTime * 2.5);
   });
 
+  const directRef = useRef();
+  const pointRef = useRef();
+
+  useLayoutEffect(() => {
+    if (!directRef.current || !!pointRef.current) return;
+    directRef.current.shadow.mapSize.width = 256;
+    directRef.current.shadow.mapSize.height = 256;
+    directRef.current.shadow.camera.far = 15;
+
+    pointRef.current.shadow.mapSize.width = 256;
+    pointRef.current.shadow.mapSize.height = 256;
+    pointRef.current.shadow.camera.far = 7;
+  }, []);
+
   return (
     <>
       <ambientLight color={new THREE.Color("#b9d5ff")} intensity={0.3} />
@@ -63,15 +68,6 @@ const Lights = () => {
         intensity={0.12}
         castShadow={true}
         position={[4, 5, -2]}
-        shadow={{
-          mapSize: {
-            width: 256,
-            height: 256,
-          },
-          camera: {
-            far: 15,
-          },
-        }}
       />
 
       {/* Door light */}
@@ -79,15 +75,6 @@ const Lights = () => {
         args={["#ff7d46", 1, 7]}
         castShadow={true}
         position={[0, 2.2, 2.7]}
-        shadow={{
-          mapSize: {
-            width: 256,
-            height: 256,
-          },
-          camera: {
-            far: 7,
-          },
-        }}
       />
 
       {/* Ghost */}
