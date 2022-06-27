@@ -27,6 +27,7 @@ const links = [
   { name: "Galaxy generator", path: "/galaxy" },
   { name: "Raycaster", path: "/raycaster" },
   { name: "Physics", path: "/physics" },
+  { name: "Imported Models", path: "/import-model" },
 ];
 
 export default links;

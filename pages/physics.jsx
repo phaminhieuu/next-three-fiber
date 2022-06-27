@@ -51,7 +51,7 @@ function Sphere({ envMap, playHitSound }) {
   const [sphereRef] = useSphere(() => ({
     mass: 1,
     position: [values.x, values.y, values.z],
-    args: [values.r],
+    args: [values.r], 
     onCollide: (e) => playHitSound(e),
   }));
   return (
