@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 html,
-body {
-  background: #000000;
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1e1e1e;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #ffffff;
 }
 
 a {
@@ -19,3 +24,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* canvas {
+  width: 100%;
+  height: 100%;
+} */

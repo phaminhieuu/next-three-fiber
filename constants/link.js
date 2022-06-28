@@ -26,8 +26,10 @@ const links = [
   { name: "Particle", path: "/particle" },
   { name: "Galaxy generator", path: "/galaxy" },
   { name: "Raycaster", path: "/raycaster" },
+  { name: "Scroll-base-animation", path: "/scroll-base-animation" },
   { name: "Physics", path: "/physics" },
   { name: "Imported Models", path: "/import-model" },
+  { name: "Realistic Render", path: "/realistic-render" },
 ];
 
 export default links;

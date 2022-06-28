@@ -28,7 +28,7 @@ export default function Navbar({ path }) {
       transition
       ease-in-out
       m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      focus:text-gray-700 focus:bg-white focus:outline-none"
         aria-label="Default select example"
         onChange={onSelect}
       >

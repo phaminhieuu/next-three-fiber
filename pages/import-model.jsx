@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, {
   Suspense,
   useEffect,
@@ -13,6 +13,7 @@ import { Vector2 } from "three";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 function Model(props) {
+
   const group = useRef();
   const actions = useRef();
   const [mixer] = useState(() => new THREE.AnimationMixer());

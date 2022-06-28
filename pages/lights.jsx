@@ -106,6 +106,7 @@ export default function Light() {
         camera={{ position: [1, 1, 2], fov: 75, near: 0.1, far: 100 }}
         linear={true}
         flat={true}
+        legaxy={true}
       >
         <Suspense fallback={<Loader />}>
           <Scene />
