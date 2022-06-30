@@ -15,6 +15,7 @@ function Scene() {
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
         /> */}
+        <meshNormalMaterial />
       </mesh>
     </>
   );

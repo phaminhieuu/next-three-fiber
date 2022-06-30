@@ -28,11 +28,11 @@ const links = [
   { name: "Raycaster", path: "/raycaster" },
   { name: "Scroll-base-animation", path: "/scroll-base-animation" },
   { name: "Physics", path: "/physics" },
-  { name: "Imported Models", path: "/import-model" },
-  { name: "Realistic Render", path: "/realistic-render" },
+  { name: "Imported Models", path: "/importmodel" },
+  { name: "Realistic Render", path: "/realisticrender" },
   { name: "Shaders", path: "/shaders" },
-  { name: "Morph Object", path: "/morph-object" },
-  { name: "Audio Analyser", path: "/audio-analyser" },
+  { name: "Morph Object", path: "/morphobject" },
+  { name: "Audio Analyser", path: "/audioanalyser" },
 ];
 
 export default links;

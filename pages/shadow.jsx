@@ -49,6 +49,7 @@ function Scene() {
     if (!planeRef.current && !sphereRef.current) return;
     setPlanePosition(planeRef.current.position);
     setSpherePosition(sphereRef.current.position);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [planeRef.current, sphereRef.current]);
 
   useLayoutEffect(() => {

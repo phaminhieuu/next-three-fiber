@@ -57,6 +57,7 @@ function Bust() {
   // Play all actions (the fragments flying off)
   useEffect(() => {
     Object.keys(actions).forEach((key) => actions[key].play());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // Control the exploding statue and the inner materials color
   useFrame((_) => {
