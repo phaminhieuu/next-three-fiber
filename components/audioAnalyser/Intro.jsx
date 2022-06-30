@@ -8,8 +8,9 @@ export default function Intro() {
   const api = useStore((state) => state.api);
   useEffect(() => {
     (async () => {
-      await api.loaded();
+      api.loaded();
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // Zoom in camera when user has pressed start
   return useFrame((state) => {

@@ -5,7 +5,7 @@ import Overlay from "../components/audioAnalyser/Overlay";
 import Graph from "../components/audioAnalyser/Graph";
 import DancingDot from "../components/audioAnalyser/DancingDot";
 import Bust from "../components/audioAnalyser/Bust";
-import Explosion from "../components/audioAnalyser/Explosion";
+// import Explosion from "../components/audioAnalyser/Explosion";
 import Ground from "../components/audioAnalyser/Ground";
 import Intro from "../components/audioAnalyser/Intro";
 
@@ -33,8 +33,8 @@ export default function AudioAnalyser() {
               <Graph position={[-0.7, -0.2, -1]} />
               <DancingDot />
               <Bust />
-              <Explosion position={[0, 0.65, 0]} beat={0} />
-              <Explosion position={[0.15, 0.25, 0]} beat={1} />
+              {/* <Explosion position={[0, 0.65, 0]} beat={0} /> */}
+              {/* <Explosion position={[0.15, 0.25, 0]} beat={1} /> */}
               <Ground />
             </group>
             <Intro />
