@@ -46,7 +46,7 @@ function Overlay() {
   );
 }
 
-export default function AudioAnalyser(props) {
+export default function AudioAnalyser() {
   return (
     <>
       <Overlay />
