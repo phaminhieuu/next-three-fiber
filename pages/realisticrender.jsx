@@ -24,7 +24,7 @@ function Environment() {
 function Model() {
   const sceneCanvas = useThree().scene;
   const group = useRef();
-  const { scene } = useGLTF("/models/FlightHelmet/gltf/FlightHelmet.gltf");
+  const { scene } = useGLTF("/models/FlightHelmet/glTF/FlightHelmet.gltf");
 
   const { envMapIntensity } = useControls({
     envMapIntensity: { value: 5, min: 0, max: 10, step: 0.001 },

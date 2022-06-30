@@ -17,7 +17,7 @@ function Model(props) {
   const group = useRef();
   const actions = useRef();
   const [mixer] = useState(() => new THREE.AnimationMixer());
-  const { nodes, materials, animations } = useGLTF("/models/Fox/gltf/Fox.gltf");
+  const { nodes, materials, animations } = useGLTF("/models/Fox/glTF/Fox.gltf");
 
   useFrame((state, delta) => {
     mixer?.update(delta);
