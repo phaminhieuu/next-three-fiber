@@ -8,7 +8,7 @@ import {
   MeshReflectorMaterial,
   useTexture,
 } from "@react-three/drei";
-import useStore from "./store";
+import useStore from "../../components/store/store";
 
 const HPI = Math.PI / 2;
 const vec = new THREE.Vector3();
