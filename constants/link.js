@@ -32,7 +32,7 @@ const links = [
   { name: "Realistic Render", path: "/realisticrender" },
   { name: "Shaders", path: "/shaders" },
   // { name: "Morph Object", path: "/morphobject" },
-  // { name: "Audio Analyser", path: "/audioanalyser" },
+  { name: "Audio Analyser", path: "/audioanalyser" },
 ];
 
 export default links;
