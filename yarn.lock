@@ -2192,7 +2192,7 @@
   dependencies:
     "debounce" "^1.2.1"
 
-"react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16 || ^17", "react@^16.11.0  || >=17.0.0 || >=18.0.0", "react@^16.8 || ^17.0", "react@^16.8.0  || >=17.0.0 || >=18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@^18.2.0", "react@>= 16.3.0", "react@>= 16.8", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.13", "react@>=16.8", "react@>=16.8.0", "react@>=17.0", "react@>=18", "react@>=18.0", "react@18.2.0":
+"react@^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16 || ^17", "react@^16.11.0  || >=17.0.0 || >=18.0.0", "react@^16.8 || ^17.0", "react@^16.8.0  || >=17.0.0 || >=18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@^18.2.0", "react@>= 16.3.0", "react@>= 16.8", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.13", "react@>=16.8", "react@>=16.8.0", "react@>=17.0", "react@>=18", "react@>=18.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -2594,6 +2594,11 @@
   dependencies:
     "punycode" "^2.1.0"
 
+"use-sync-external-store@1.1.0":
+  "integrity" "sha512-SEnieB2FPKEVne66NpXPd1Np4R1lTNKfjuy3XdIoPQKYBAFdzbzSZlSn1KJZUiihQLQC5Znot4SBz1EOTBwQAQ=="
+  "resolved" "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.1.0.tgz"
+  "version" "1.1.0"
+
 "util-deprecate@^1.0.2":
   "integrity" "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="
   "resolved" "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
@@ -2672,7 +2677,24 @@
   "resolved" "https://registry.npmjs.org/zstddec/-/zstddec-0.0.2.tgz"
   "version" "0.0.2"
 
-"zustand@^3.5.13", "zustand@^3.6.9", "zustand@^3.7.1":
+"zustand@^3.5.13":
   "integrity" "sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA=="
   "resolved" "https://registry.npmjs.org/zustand/-/zustand-3.7.2.tgz"
   "version" "3.7.2"
+
+"zustand@^3.6.9":
+  "integrity" "sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA=="
+  "resolved" "https://registry.npmjs.org/zustand/-/zustand-3.7.2.tgz"
+  "version" "3.7.2"
+
+"zustand@^3.7.1":
+  "integrity" "sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA=="
+  "resolved" "https://registry.npmjs.org/zustand/-/zustand-3.7.2.tgz"
+  "version" "3.7.2"
+
+"zustand@^4.0.0-rc.1":
+  "integrity" "sha512-qgcs7zLqBdHu0PuT3GW4WCIY5SgXdsv30GQMu9Qpp1BA2aS+sNS8l4x0hWuyEhjXkN+701aGWawhKDv6oWJAcw=="
+  "resolved" "https://registry.npmjs.org/zustand/-/zustand-4.0.0-rc.1.tgz"
+  "version" "4.0.0-rc.1"
+  dependencies:
+    "use-sync-external-store" "1.1.0"

@@ -30,6 +30,9 @@ const links = [
   { name: "Physics", path: "/physics" },
   { name: "Imported Models", path: "/import-model" },
   { name: "Realistic Render", path: "/realistic-render" },
+  { name: "Shaders", path: "/shaders" },
+  { name: "Morph Object", path: "/project/morph-object" },
+  { name: "Audio Analyser", path: "/project/audio-analyser" },
 ];
 
 export default links;
