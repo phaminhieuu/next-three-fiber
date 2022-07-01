@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import Overlay from "../components/audioAnalyser/Overlay";
+// import Overlay from "../components/audioAnalyser/Overlay";
 // import Graph from "../components/audioAnalyser/Graph";
 // import DancingDot from "../components/audioAnalyser/DancingDot";
 // import Bust from "../components/audioAnalyser/Bust";
@@ -16,7 +16,7 @@ export default function AudioAnalyser() {
       <div className="w-full h-screen">
         <Canvas
           dpr={[1, 2]}
-          camera={{ position: [-1, 10, 10], fov: 25 }}
+          camera={{ position: [-1, 11, 10], fov: 25 }}
           linear
           flat
           legacy
