@@ -1,7 +1,7 @@
 import create from 'zustand'
 import { addEffect } from '@react-three/fiber'
 
-async function createAudio(url, { threshold, expire } = {}) {
+export async function createAudio(url, { threshold, expire } = {}) {
   const res = await fetch(url)
   const buffer = await res.arrayBuffer()
   const context = new (window.AudioContext || window.webkitAudioContext)()
