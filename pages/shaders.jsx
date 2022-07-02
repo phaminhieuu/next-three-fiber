@@ -42,7 +42,7 @@ function Scene() {
     shader.current.uniforms.uTime = { value: 0 };
     shader.current.uniforms.uColor = { value: new THREE.Color("orange") };
     shader.current.uniforms.uTexture = { value: map };
-  }, [frequencyX, frequencyY]);
+  }, [frequencyX, frequencyY, map]);
 
   useFrame(({ clock }) => {
     const elapedTime = clock.getElapsedTime() * 5;

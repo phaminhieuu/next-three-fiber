@@ -52,15 +52,15 @@ const Drawer = ({ isOpen, setIsOpen, currentPath }) => {
   }, [trigger]);
 
   return (
-    <>
+    <div>
       {isOpen && (
         <div
-          className="w-screen h-screen fixed top-0 left-0 content-none bg-black opacity-60 z-11"
+          className="w-screen h-screen fixed top-0 left-0 content-none bg-black opacity-60"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
       <div
-        className={`top-0 left-0 fixed bg-[#222222] w-[calc(100vw-60px)] sm:w-[300px] max-w-[300px] h-full z-10 ${
+        className={`top-0 left-0 fixed bg-[#222222] w-[calc(100vw-60px)] sm:w-[300px] max-w-[300px] h-full ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } ease-in-out duration-300 `}
       >
@@ -98,7 +98,7 @@ const Drawer = ({ isOpen, setIsOpen, currentPath }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -106,12 +106,12 @@ export default function Navbar({ path }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed w-full h-12 z-10 flex items-center" as="nav">
-      <div className="p-2 pt-3">
+    <div className="fixed z-[2000]" as="nav">
+      <div className="pl-3 pt-3">
         <button
           onClick={() => setIsOpen(true)}
           type="button"
-          className="inline-block px-2.5 py-2.5 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          className="inline-block px-2 py-2 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

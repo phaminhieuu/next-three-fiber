@@ -65,7 +65,7 @@ const links = [
   {
     name: "Shader Partterns",
     image: "/images/thumbnail/texture.png",
-    path: "/shaderpartterns",
+    path: "/shaderpatterns",
   },
   // {
   //   name: "Morph Object",
