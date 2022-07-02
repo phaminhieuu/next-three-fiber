@@ -55,7 +55,7 @@ const Drawer = ({ isOpen, setIsOpen, currentPath }) => {
     <div>
       {isOpen && (
         <div
-          className="w-screen h-screen fixed top-0 left-0 content-none bg-black opacity-60"
+          className="w-screen h-screen fixed top-0 left-0 content-none bg-black opacity-60 ease-in-out"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

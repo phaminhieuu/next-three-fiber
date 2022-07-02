@@ -64,7 +64,7 @@ const links = [
   { name: "Shaders", image: "/images/thumbnail/shaders.png", path: "/shaders" },
   {
     name: "Shader Partterns",
-    image: "/images/thumbnail/texture.png",
+    image: "/images/thumbnail/shader-pattern.png",
     path: "/shaderpatterns",
   },
   // {
