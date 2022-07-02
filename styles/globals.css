@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .card {
+    background-color: #2E2E2E;
+    border-radius: theme("borderRadius.lg");
+    padding: theme("spacing.6");
+    box-shadow: theme("boxShadow.xl");
+  }
+}
+
 html,
 body,
 #root {
@@ -58,4 +67,8 @@ a {
 .fullscreen.clicked {
   pointer-events: none;
   opacity: 0;
+}
+
+input {
+  all: unset;
 }

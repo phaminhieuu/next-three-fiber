@@ -144,7 +144,7 @@ function Scene() {
 export default function Material() {
   return (
     <div className="w-full h-screen">
-      <Canvas camera={{ position: [1, 1, 2], fov: 75, near: 0.1, far: 100 }}>
+      <Canvas camera={{ position: [1, 1, 2], fov: 75, near: 0.1, far: 100 }} linear flat legacy>
         <Suspense fallback={<Loader />}>
           <Scene />
           <OrbitControls />
