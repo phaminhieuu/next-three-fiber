@@ -69,7 +69,7 @@ const links = [
   },
   {
     name: "Raging sea",
-    image: "/images/thumbnail/shader-pattern.png",
+    image: "/images/thumbnail/raging-sea.png",
     path: "/ragingsea",
   },
   // {
