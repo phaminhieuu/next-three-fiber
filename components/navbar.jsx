@@ -83,6 +83,7 @@ const Drawer = ({ isOpen, setIsOpen, currentPath }) => {
             className="ml-2 w-full"
             value={search}
             onChange={handleFilter}
+            placeholder="Search..."
           ></input>
         </div>
 

@@ -10,6 +10,7 @@ import React, {
 import Loader from "../components/loader";
 import * as THREE from "three";
 import { Physics, usePlane, useBox, useSphere } from "@react-three/cannon";
+import { useControls, button } from "leva";
 
 function Box({ envMap, playHitSound }) {
   const values = useMemo(() => {
@@ -51,7 +52,7 @@ function Sphere({ envMap, playHitSound }) {
   const [sphereRef] = useSphere(() => ({
     mass: 1,
     position: [values.x, values.y, values.z],
-    args: [values.r], 
+    args: [values.r],
     onCollide: (e) => playHitSound(e),
   }));
   return (
@@ -120,9 +121,20 @@ function Scene({ boxes, spheres, playHitSound }) {
 export default function Physics3D() {
   const [boxes, setBoxes] = useState(1);
   const [spheres, setSpheres] = useState(0);
-  // const hitSound = new Audio("/sounds/hit.mp3");
   const sound = useRef(
     typeof Audio !== "undefined" ? new Audio("/sounds/hit.mp3") : undefined
+  );
+
+  useControls(
+    {
+      "Create box": button(() => setBoxes(boxes + 1)),
+      "Create sphere": button(() => setSpheres(spheres + 1)),
+      Reset: button(() => {
+        setBoxes(0);
+        setSpheres(0);
+      }),
+    },
+    [boxes, spheres]
   );
 
   const playHitSound = (collision) => {
@@ -139,18 +151,6 @@ export default function Physics3D() {
 
   return (
     <div className="w-full h-screen">
-      <div className="fixed top-0 right-0 z-[1000] text-white bg-stone-700 flex flex-col justify-start w-1/7 gap-2 p-2">
-        <button onClick={() => setBoxes(boxes + 1)}>Create box</button>
-        <button onClick={() => setSpheres(spheres + 1)}>Create sphere</button>
-        <button
-          onClick={() => {
-            setBoxes(0);
-            setSpheres(0);
-          }}
-        >
-          Reset
-        </button>
-      </div>
       <Canvas
         shadows={true}
         camera={{ position: [-3, 3, 3], fov: 75, near: 0.1, far: 100 }}

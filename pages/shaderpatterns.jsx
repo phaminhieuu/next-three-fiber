@@ -9,46 +9,6 @@ import fragmentShader from "../shaders/shader-patterns/fragment.glsl";
 import { useControls } from "leva";
 
 function Scene() {
-  // const mesh = useRef();
-  // const shader = useRef();
-
-  // const [map] = useTexture(["/images/co-viet-nam.jpg"]);
-
-  // const { frequencyX, frequencyY } = useControls({
-  //   frequencyX: { value: 10, min: 0, max: 20, step: 0.01 },
-  //   frequencyY: { value: 5, min: 0, max: 20, step: 0.01 },
-  // });
-
-  // useLayoutEffect(() => {
-  //   if (!mesh.current) return;
-  //   //Geometry
-  //   const geometry = mesh.current.geometry;
-
-  //   const count = geometry.attributes.position.count;
-  //   const randoms = new Float32Array(count);
-
-  //   for (let i = 0; i < count; i++) {
-  //     randoms[i] = Math.random();
-  //   }
-
-  //   geometry.setAttribute("aRandom", new THREE.BufferAttribute(randoms, 1));
-  // }, []);
-
-  // useLayoutEffect(() => {
-  //   if (!shader.current) return;
-  //   shader.current.uniforms.uFrequency = {
-  //     value: new THREE.Vector2(frequencyX, frequencyY),
-  //   };
-  //   shader.current.uniforms.uTime = { value: 0 };
-  //   shader.current.uniforms.uColor = { value: new THREE.Color("orange") };
-  //   shader.current.uniforms.uTexture = { value: map };
-  // }, [frequencyX, frequencyY, map]);
-
-  // useFrame(({ clock }) => {
-  //   const elapedTime = clock.getElapsedTime() * 5;
-  //   shader.current.uniforms.uTime.value = elapedTime;
-  // });
-
   return (
     <>
       <mesh>

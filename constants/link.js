@@ -67,6 +67,11 @@ const links = [
     image: "/images/thumbnail/shader-pattern.png",
     path: "/shaderpatterns",
   },
+  {
+    name: "Raging sea",
+    image: "/images/thumbnail/shader-pattern.png",
+    path: "/ragingsea",
+  },
   // {
   //   name: "Morph Object",
   //   image: "/images/thumbnail/texture.png",
