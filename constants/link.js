@@ -72,6 +72,11 @@ const links = [
     image: "/images/thumbnail/raging-sea.png",
     path: "/ragingsea",
   },
+  {
+    name: "Animated Galaxy",
+    image: "/images/thumbnail/animated-galaxy.png",
+    path: "/animatedgalaxy",
+  },
   // {
   //   name: "Morph Object",
   //   image: "/images/thumbnail/texture.png",
