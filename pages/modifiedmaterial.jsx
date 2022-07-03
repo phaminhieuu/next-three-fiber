@@ -1,4 +1,9 @@
-import { OrbitControls, useCubeTexture, useGLTF } from "@react-three/drei";
+import {
+  OrbitControls,
+  useCubeTexture,
+  useGLTF,
+  useTexture,
+} from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import Loader from "../components/loader";
@@ -24,14 +29,20 @@ function Environment() {
 function Model() {
   const sceneCanvas = useThree().scene;
   const group = useRef();
-  const { scene } = useGLTF("/models/FlightHelmet/glTF/FlightHelmet.gltf");
+  const mesh = useRef();
+  const { nodes } = useGLTF("/models/LeePerrySmith/LeePerrySmith.glb");
 
   const { envMapIntensity } = useControls({
     envMapIntensity: { value: 5, min: 0, max: 10, step: 0.001 },
   });
 
+  const [map, normal] = new useTexture([
+    "/models/LeePerrySmith/color.jpg",
+    "/models/LeePerrySmith/normal.jpg",
+  ]);
+
   useEffect(() => {
-    console.log(envMapIntensity);
+    map.encoding = THREE.sRGBEncoding;
     sceneCanvas.traverse((child) => {
       if (
         child instanceof THREE.Mesh &&
@@ -46,16 +57,22 @@ function Model() {
     });
   }, [envMapIntensity]);
 
+  useLayoutEffect(() => {
+    if (!mesh.current) return;
+    
+    mesh.current.material.map = map;
+    mesh.current.material.normal = normal;
+  }, []);
+
   return (
     <group
       ref={group}
-      scale={[10, 10, 10]}
-      position={[0, -4, 0]}
       rotation={[0, Math.PI * 0.5, 0]}
       castShadow
       receiveShadow
     >
-      <primitive object={scene} />
+      <primitive object={nodes["LeePerrySmith"]} ref={mesh} />
+      <meshStandardMaterial map={map} normalMap={normal} />
     </group>
   );
 }
@@ -89,7 +106,7 @@ function Scene() {
   );
 }
 
-export default function RealisticRender() {
+export default function ModifiedMaterial() {
   const { toneMappingExposure, toneMapping } = useControls({
     toneMappingExposure: { value: 3, min: 0, max: 10, step: 0.001 },
     toneMapping: {
@@ -108,9 +125,9 @@ export default function RealisticRender() {
       <Canvas
         dpr={[1, 2]}
         camera={{ position: [4, 1, -4], fov: 75, near: 0.1, far: 100 }}
-        linear
-        legacy
-        shadows
+        linear={true}
+        legacy={true}
+        shadows={true}
         gl={{
           physicallyCorrectLights: true,
           toneMapping,

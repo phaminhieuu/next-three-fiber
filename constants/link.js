@@ -77,6 +77,11 @@ const links = [
     image: "/images/thumbnail/animated-galaxy.png",
     path: "/animatedgalaxy",
   },
+  {
+    name: "Modified Material",
+    image: "/images/thumbnail/realistic-render.png",
+    path: "/modifiedmaterial",
+  },
   // {
   //   name: "Morph Object",
   //   image: "/images/thumbnail/texture.png",
