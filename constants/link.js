@@ -79,7 +79,7 @@ const links = [
   },
   {
     name: "Modified Material",
-    image: "/images/thumbnail/realistic-render.png",
+    image: "/images/thumbnail/modified-material.png",
     path: "/modifiedmaterial",
   },
   // {
