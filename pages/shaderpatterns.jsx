@@ -12,7 +12,7 @@ function Scene() {
   return (
     <>
       <mesh>
-        <planeBufferGeometry args={[1, 1, 32, 32]} />
+        <planeBufferGeometry args={[2, 2, 32, 32]} />
         <shaderMaterial   
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}

@@ -80,7 +80,7 @@ function Scene() {
   return (
     <>
       <mesh rotation={[-Math.PI * 0.5, 0, 0]}>
-        <planeBufferGeometry args={[2, 2, 512, 512]} />
+        <planeBufferGeometry args={[5, 5, 512, 512]} />
         <shaderMaterial
           ref={shader}
           vertexShader={vertexShader}

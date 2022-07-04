@@ -40,16 +40,16 @@ const links = [
     image: "/images/thumbnail/galaxy-generator.png",
     path: "/galaxy",
   },
-  {
-    name: "Raycaster",
-    image: "/images/thumbnail/raycaster.png",
-    path: "/raycaster",
-  },
-  {
-    name: "Scroll-base-animation",
-    image: "/images/thumbnail/texture.png",
-    path: "/scroll-base-animation",
-  },
+  // {
+  //   name: "Raycaster",
+  //   image: "/images/thumbnail/raycaster.png",
+  //   path: "/raycaster",
+  // },
+  // {
+  //   name: "Scroll-base-animation",
+  //   image: "/images/thumbnail/texture.png",
+  //   path: "/scroll-base-animation",
+  // },
   { name: "Physics", image: "/images/thumbnail/physics.png", path: "/physics" },
   {
     name: "Imported Models",
@@ -63,7 +63,7 @@ const links = [
   },
   { name: "Shaders", image: "/images/thumbnail/shaders.png", path: "/shaders" },
   {
-    name: "Shader Partterns",
+    name: "Shader Patterns",
     image: "/images/thumbnail/shader-pattern.png",
     path: "/shaderpatterns",
   },
@@ -82,6 +82,11 @@ const links = [
     image: "/images/thumbnail/modified-material.png",
     path: "/modifiedmaterial",
   },
+  // {
+  //   name: "Post Processing",
+  //   image: "/images/thumbnail/modified-material.png",
+  //   path: "/postprocessing",
+  // },
   // {
   //   name: "Morph Object",
   //   image: "/images/thumbnail/texture.png",

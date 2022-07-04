@@ -30,8 +30,7 @@ function Model() {
     envMapIntensity: { value: 5, min: 0, max: 10, step: 0.001 },
   });
 
-  useEffect(() => {
-    console.log(envMapIntensity);
+  useEffect(() => {;
     sceneCanvas.traverse((child) => {
       if (
         child instanceof THREE.Mesh &&

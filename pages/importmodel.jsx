@@ -1,15 +1,23 @@
-import { OrbitControls, useCubeTexture, useGLTF } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
-import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import { OrbitControls, useCubeTexture } from "@react-three/drei";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import React, {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import Loader from "../components/loader";
 import * as THREE from "three";
-import { useControls } from "leva";
+import { Vector2 } from "three";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { button, useControls } from "leva";
 
 function Environment() {
   const { scene } = useThree();
   const envMap = new useCubeTexture(
     ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
-    { path: "/textures/environment/0/" }
+    { path: "/textures/environment/1/" }
   );
 
   useEffect(() => {
@@ -21,107 +29,90 @@ function Environment() {
   return null;
 }
 
-function Model() {
-  const sceneCanvas = useThree().scene;
+function Model(props) {
   const group = useRef();
-  const { scene } = useGLTF("/models/FlightHelmet/glTF/FlightHelmet.gltf");
+  const actions = useRef();
+  const [index, setIndex] = useState(0);
+  const [mixer] = useState(() => new THREE.AnimationMixer());
+  const { nodes, materials, animations } = useGLTF("/models/Fox/glTF/Fox.gltf");
 
-  const { envMapIntensity } = useControls({
-    envMapIntensity: { value: 5, min: 0, max: 10, step: 0.001 },
+  useFrame((state, delta) => {
+    mixer?.update(delta);
+  });
+
+  useControls({
+    Survey: button(() => setIndex(0)),
+    Walk: button(() => setIndex(1)),
+    Run: button(() => setIndex(2)),
   });
 
   useEffect(() => {
-    console.log(envMapIntensity);
-    sceneCanvas.traverse((child) => {
-      if (
-        child instanceof THREE.Mesh &&
-        child.material instanceof THREE.MeshStandardMaterial
-      ) {
-        // child.material.envMap = environmentMap
-        child.material.envMapIntensity = envMapIntensity;
-        child.material.needsUpdate = true;
-        child.castShadow = true;
-        child.receiveShadow = true;
-      }
-    });
-  }, [envMapIntensity]);
+    actions.current = {
+      idle: mixer.clipAction(animations[index], group.current),
+    };
+    actions.current.idle.play();
+    return () => animations.forEach((clip) => mixer.uncacheClip(clip));
+  }, [index]);
 
   return (
-    <group
-      ref={group}
-      scale={[10, 10, 10]}
-      position={[0, -4, 0]}
-      rotation={[0, Math.PI * 0.5, 0]}
-      castShadow
-      receiveShadow
-    >
-      <primitive object={scene} />
+    <group ref={group} dispose={null} scale={[0.025, 0.025, 0.025]}>
+      <mesh castShadow receiveShadow>
+        <primitive object={nodes["root"]} attac />
+      </mesh>
     </group>
   );
 }
 
+useGLTF.preload("/models/Fox/gltf/Fox.gltf");
+
 function Scene() {
   const directRef = useRef();
+
   useLayoutEffect(() => {
     if (!directRef.current) return;
-    const shadow = directRef.current.shadow;
-    shadow.camera.far = 15;
-    shadow.mapSize.set(1024, 1024);
-    shadow.normalBias = 0.05;
+    const camera = directRef.current.shadow.camera;
+    camera.far = 15;
+    camera.left = -7;
+    camera.top = 7;
+    camera.right = 7;
+    camera.bottom = -7;
+    directRef.current.shadow.mapSize = new Vector2(1024, 1024);
   }, []);
 
-  const { lightIntensity, lightX, lightY, lightZ } = useControls({
-    lightIntensity: { value: 3, min: 0, max: 10, step: 0.001 },
-    lightX: { value: 0.25, min: -5, max: 5, step: 0.001 },
-    lightY: { value: 3, min: -5, max: 5, step: 0.001 },
-    lightZ: { value: -2.25, min: -5, max: 5, step: 0.001 },
-  });
   return (
     <>
+      <ambientLight color={new THREE.Color(0xffffff)} intensity={0.8} />
+
       <directionalLight
         ref={directRef}
-        args={["#ffffff", lightIntensity]}
+        color={new THREE.Color(0xffffff)}
+        intensity={0.6}
         castShadow={true}
-        position={[lightX, lightY, lightZ]}
+        position={[-5, 5, 0]}
       />
+      <Environment />
+      {/* <mesh receiveShadow={true} rotation={[-Math.PI * 0.5, 0, 0]}>
+        <planeBufferGeometry args={[10, 10]} />
+        <meshStandardMaterial color="#444444" metalness={0} roughness={0.5} />
+      </mesh> */}
       <Model />
     </>
   );
 }
 
-export default function RealisticRender() {
-  const { toneMappingExposure, toneMapping } = useControls({
-    toneMappingExposure: { value: 3, min: 0, max: 10, step: 0.001 },
-    toneMapping: {
-      options: {
-        Reinhard: THREE.ReinhardToneMapping,
-        No: THREE.NoToneMapping,
-        Linear: THREE.LinearToneMapping,
-        Cineon: THREE.CineonToneMapping,
-        ACESFilmic: THREE.ACESFilmicToneMapping,
-      },
-    },
-  });
-
+export default function ImportModel() {
   return (
     <div className="w-full h-screen">
       <Canvas
         dpr={[1, 2]}
-        camera={{ position: [4, 1, -4], fov: 75, near: 0.1, far: 100 }}
-        linear
-        legacy
-        shadows
-        gl={{
-          physicallyCorrectLights: true,
-          toneMapping,
-          toneMappingExposure,
-          antialias: true,
-          outputEncoding: THREE.sRGBEncoding,
-        }}
+        camera={{ position: [2, 2, 2], fov: 75, near: 0.1, far: 100 }}
+        linear={true}
+        flat={true}
+        legacy={true}
+        shadows={true}
       >
         <Suspense fallback={<Loader />}>
           <Scene />
-          <Environment />
           <OrbitControls />
         </Suspense>
       </Canvas>
