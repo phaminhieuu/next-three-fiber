@@ -13,22 +13,6 @@ import { Vector2 } from "three";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { button, useControls } from "leva";
 
-function Environment() {
-  const { scene } = useThree();
-  const envMap = new useCubeTexture(
-    ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"],
-    { path: "/textures/environment/1/" }
-  );
-
-  useEffect(() => {
-    envMap.encoding = THREE.sRGBEncoding;
-    scene.environment = envMap;
-    scene.background = envMap;
-  }, []);
-
-  return null;
-}
-
 function Model(props) {
   const group = useRef();
   const actions = useRef();
@@ -90,11 +74,10 @@ function Scene() {
         castShadow={true}
         position={[-5, 5, 0]}
       />
-      <Environment />
-      {/* <mesh receiveShadow={true} rotation={[-Math.PI * 0.5, 0, 0]}>
+      <mesh receiveShadow={true} rotation={[-Math.PI * 0.5, 0, 0]}>
         <planeBufferGeometry args={[10, 10]} />
         <meshStandardMaterial color="#444444" metalness={0} roughness={0.5} />
-      </mesh> */}
+      </mesh>
       <Model />
     </>
   );
