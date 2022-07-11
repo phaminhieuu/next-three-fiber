@@ -4,7 +4,7 @@ export default function Loader() {
   const { progress } = useProgress();
   return (
     <Html center style={{ color: "white", display: "flex" }}>
-      {progress.toFixed(0)}% loaded
+      <div className="flex">{progress.toFixed(0)}% loaded</div>
     </Html>
   );
 }

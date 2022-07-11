@@ -82,11 +82,11 @@ const links = [
     image: "/images/thumbnail/modified-material.png",
     path: "/modifiedmaterial",
   },
-  // {
-  //   name: "Post Processing",
-  //   image: "/images/thumbnail/modified-material.png",
-  //   path: "/postprocessing",
-  // },
+  {
+    name: "Post Processing",
+    image: "/images/thumbnail/modified-material.png",
+    path: "/postprocessing",
+  },
   // {
   //   name: "Morph Object",
   //   image: "/images/thumbnail/texture.png",

@@ -61,7 +61,7 @@ const Drawer = ({ isOpen, setIsOpen, currentPath }) => {
       )}
       <div
         className={`top-0 left-0 fixed bg-[#222222] w-[calc(100vw-60px)] sm:w-[300px] max-w-[300px] h-full ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? "translate-x-0" : "-translate-x-0"
         } ease-in-out duration-300 `}
       >
         <div className="flex justify-start items-center mb-3 border-b p-3">
@@ -116,7 +116,7 @@ export default function Navbar({ path }) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-8 w-8"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
